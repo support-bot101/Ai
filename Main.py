@@ -1,19 +1,8 @@
 import os
 import sys
 
-# Function to install a module if missing
-def install_and_import(module_name, package_name=None):
-    package_name = package_name if package_name else module_name
-    try:
-        __import__(module_name)
-    except ImportError:
-        os.system(f"{sys.executable} -m pip install --upgrade {package_name}")
-        __import__(module_name)
-
 # Install required dependencies
-install_and_import("streamlit")
-install_and_import("requests")
-install_and_import("bs4", "beautifulsoup4")
+os.system(f"{sys.executable} -m pip install --upgrade streamlit requests beautifulsoup4")
 
 # Now import installed modules
 import random
